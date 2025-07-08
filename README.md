@@ -74,6 +74,16 @@ yarn start:dev
 
 ---
 
+## Swagger 
+
+### Accessing Swagger
+```
+http://localhost:3000/api-docs
+```
+
+---
+
+
 ## 🔐 Authentication
 
 This API uses JWT authentication for protected routes.
