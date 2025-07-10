@@ -21,4 +21,7 @@ export class UsersController {
   getProfile(@CurrentUser() user: { userId: string }) {
     return this.userService.findById(user.userId);
   }
+
+  
+
 }
