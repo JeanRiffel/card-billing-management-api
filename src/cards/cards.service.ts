@@ -27,5 +27,10 @@ export class CardsService {
     });
   }
 
+  async getCards(userId: string) {
+    return this.prisma.card.findMany({
+      where: { userId },
+    });
+  } 
 
 }
