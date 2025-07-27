@@ -13,6 +13,7 @@ model User {
   email        String  @unique
   passwordHash String
   cards        Card[]
+  chatMessages ChatMessage[]
 }
 
 model Card {
@@ -58,4 +59,13 @@ model Category {
   name     String
   color    String?
   purchases Purchase[]
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id]) 
+  role      String
+  content   String
+  createdAt DateTime @default(now())
 }

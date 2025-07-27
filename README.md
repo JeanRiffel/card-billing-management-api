@@ -2,6 +2,9 @@
 
 A RESTful API for managing credit card purchases and monthly invoices, built with [NestJS](https://nestjs.com/), [Prisma ORM](https://www.prisma.io/), and [PostgreSQL](https://www.postgresql.org/). Authentication is handled with JWT.
 
+![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-blue?logo=OpenAI&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ---
 
 ## 🧾 Features
@@ -74,6 +77,60 @@ yarn start:dev
 
 ---
 
+🧠 AI Integration (Ollama)
+
+This project uses Ollama to run local LLMs (Large Language Models) like LLaMA3 or Mistral for AI-based features, such as:
+
+  Chat with context per user
+
+  Natural language invoice explanations (planned)
+
+  Spending anomaly detection (planned)
+
+
+🚀 How to Install and Run Ollama Locally
+
+    You need to install Ollama locally to enable AI endpoints in this API.
+
+✅ 1. Install Ollama
+
+Visit https://ollama.com and follow installation instructions for your system:
+
+    macOS (Intel/Apple Silicon): via Homebrew
+
+    Linux (Debian-based): via .deb package
+
+    Windows: via official installer
+
+Or run
+
+curl -fsSL https://ollama.com/install.sh | sh
+
+
+✅ 2. Download a model (e.g., llama3)
+
+ollama pull llama3
+
+
+✅ 3. Run Ollama
+
+ollama run llama3
+
+Ollama will expose a local REST API at http://localhost:11434
+
+✅ 4. Test the API manually (optional)
+
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3",
+  "prompt": "Hello, how are you?",
+  "stream": false
+}'
+
+---
+
+
+---
+
 ## Swagger 
 
 ### Accessing Swagger
@@ -82,7 +139,6 @@ http://localhost:3000/api-docs
 ```
 
 ---
-
 
 ## 🔐 Authentication
 
