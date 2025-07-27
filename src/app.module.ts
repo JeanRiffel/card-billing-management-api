@@ -8,9 +8,10 @@ import { PurchasesModule } from './purchases/purchases.module';
 import { InvoicesModule } from './invoices/invoices.module';
 import { CategoriesModule } from './categories/categories.module';
 import { PaymentsModule } from './payments/payments.module';
+import { ChatModule } from './artificial-inteligence/artificial-inteligence.modules';
 
 @Module({
-  imports: [UsersModule, AuthModule, CardsModule, PurchasesModule, InvoicesModule, CategoriesModule, PaymentsModule],
+  imports: [UsersModule, AuthModule, CardsModule, PurchasesModule, InvoicesModule, CategoriesModule, PaymentsModule, ChatModule],
   controllers: [AppController],
   providers: [AppService],
 })
