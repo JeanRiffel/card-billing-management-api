@@ -28,7 +28,7 @@ export class ArtificialInteligenceService {
       content: msg.content,
     }));
 
-    const response = await axios.post('http://localhost:11434/api/generate', {
+    const response = await axios.post(`${process.env.OLLAMA_HOST}/api/generate`, {
     	model: 'llama3',
       prompt,
       stream: false,
