@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:16
-    container_name: card_billing_postgres
+    container_name: card-billing-db-prod
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -13,6 +13,16 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  app:
+    build: .
+    container_name: card-billing-db-app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432
+    command: sh -c "npx prisma db push && yarn start:prod"
 
 volumes:
   postgres_data:
