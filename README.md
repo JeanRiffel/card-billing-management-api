@@ -213,6 +213,31 @@ PORT=3000
 
 ---
 
+
+## 🧪 End-to-End Testing (Cucumber)
+
+This project uses [Cucumber.js](https://github.com/cucumber/cucumber-js) for end-to-end (BDD) tests.
+
+### How to run e2e tests
+
+1. Make sure the database is running and migrations are applied:
+
+   ```bash
+   docker-compose up -d
+   yarn prisma migrate deploy
+   ```
+
+2. Run the e2e tests:
+
+   ```bash
+   yarn test:e2e:cucumber
+   ```
+
+The output will show a progress bar and a summary of the scenarios.
+
+Feature files are located in `test/e2e-bdd/features/` and step definitions in `test/e2e-bdd/steps/`.
+
+---
 ## 🧪 To Do
 
 - [ ] Unit and e2e testing
