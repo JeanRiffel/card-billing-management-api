@@ -1,8 +1,8 @@
 module.exports = {
   default: [
-    '--require-module', 'ts-node/register',
-    '--require', 'test/steps/bootstrap.ts',
-    '--require', 'test/steps/**/*.ts',
-    'test/**/*.feature',
+      "test/e2e-bdd/features/**/*.feature",
+      "--require-module ts-node/register",
+      "--require test/e2e-bdd/steps/**/*.ts",
+      // "--publish-quiet"
   ].join(' '),
 };
