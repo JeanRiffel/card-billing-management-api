@@ -31,6 +31,7 @@ A RESTful API for managing credit card purchases and monthly invoices, built wit
 - ✅ [Passport](https://docs.nestjs.com/security/authentication) + JWT
 - ✅ Docker (for database)
 - ✅ ESLint + Prettier
+- ✅ Cucumber
 
 ---
 
