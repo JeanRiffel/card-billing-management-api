@@ -11,7 +11,7 @@ export class PurchasesController {
 
   @Get()
   async getCustomerPurchases(@CurrentUser() user: { userId: string}){
-    return this.purchaseService.findById(user.userId);
+    return this.purchaseService.findByCustomerId(user.userId);
   }
 
   @Post()

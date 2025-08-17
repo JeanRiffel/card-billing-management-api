@@ -6,9 +6,19 @@ import { CreatePurchasesDTO } from './dto/create-purchases.dto';
 export class PurchasesService {
   constructor(private prisma: PrismaService){}
 
-  async findById(id: string){
-    const purchases = await this.prisma.purchase.findUnique({
-      where: { id },
+  async findByCustomerId(customerId: string){
+    const userId = customerId
+
+    const card = await this.prisma.card.findFirst({
+      where: {
+        userId: userId
+      }
+    })
+
+    const cardId = card?.id
+
+    const purchases = await this.prisma.purchase.findMany({
+      where: { cardId },
     });
 
     if (!purchases){
