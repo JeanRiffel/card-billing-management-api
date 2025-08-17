@@ -1,6 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { PurchasesService } from './purchases.service';
 import { CurrentUser } from 'src/common/decorators/current-user.decorator';
+import { CreatePurchasesDTO } from './dto/create-purchases.dto';
+
 
 @Controller('purchases')
 export class PurchasesController {
@@ -12,5 +14,9 @@ export class PurchasesController {
     return this.purchaseService.findById(user.userId);
   }
 
+  @Post()
+  async createPurchase(@Body() createPurchaseDTO: CreatePurchasesDTO){
+    return this.purchaseService.createPurchase(createPurchaseDTO);
+  }
 
 }
