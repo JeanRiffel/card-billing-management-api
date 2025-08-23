@@ -1,14 +1,18 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Inject } from "@nestjs/common";
 import { Card } from "src/v2/domain/entities/card/card.entity";
-import { CardRepository } from "src/v2/infra/prisma/cards/prisma.cards.repository";
-import { CreateCardDto } from "src/v2/modules/cards/dto/create-card.dto";
+import { CardRepository, CARD_REPOSITORY } from "src/v2/domain/repositories/card-repository";
+
+import { CreateCardDto } from "src/v2/modules/cards/dto/create-card-request.dto";
 
 @Injectable()
 export class CreateCardUseCase {
   
-  constructor(private readonly cardRepository: CardRepository) {}
+  constructor(
+    @Inject(CARD_REPOSITORY)
+    private readonly cardRepository: CardRepository
+  ) {}
 
-  async run(dto: CreateCardDto, userId: string): Promise<Card>{
+  async execute(dto: CreateCardDto, userId: string): Promise<Card>{
 
     const card = new Card(
       '',
