@@ -13,13 +13,10 @@ export class ListCardsUseCase {
   ) {}
 
   async execute(userId : string): Promise<ListCardDto[]>{
-
-
     const listCards = await this.cardRepository.findByUserId(userId);
     console.log(listCards)
 
     return this.mapperReturn(listCards);
-
   }
 
   private mapperReturn(listCards: Card[]): ListCardDto[]{
@@ -30,6 +27,5 @@ export class ListCardsUseCase {
       return cardItem;
     })
   }
-
 
 } 
