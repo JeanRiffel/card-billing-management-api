@@ -1,4 +1,5 @@
 import {
+  isNotEmpty,
   IsNotEmpty,
   IsUUID,
 } from 'class-validator'
@@ -20,4 +21,8 @@ export class CreatePurchasesDTO {
   @IsUUID()
   @IsNotEmpty()
   cardId: string;
+
+  @IsNotEmpty()
+  invoiceId: string;
+
 }

@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsNumber, IsInt } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber, IsInt, IsUUID } from 'class-validator';
 
 export class CreateCardDto {
   @IsNotEmpty()
@@ -16,5 +16,6 @@ export class CreateCardDto {
 
   @IsInt()
   dueDay: number;
+
 
 }
