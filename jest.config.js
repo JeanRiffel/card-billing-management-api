@@ -5,7 +5,7 @@ module.exports = {
     '^src/(.*)$': '<rootDir>/src/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/src', '<rootDir>/test'],
   testMatch: ['**/test/**/*.spec.ts'],
   globals: {
     'ts-jest': {

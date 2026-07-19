@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Purchase } from "src/v2/domain/entities/purchase/purchase.entity";
 import { PurchaseRepository } from "src/v2/domain/repositories/purchase-repository";
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/infra/orm/prisma/prisma.service';
 
 @Injectable()
 export class PrismaPurchaseRepository implements PurchaseRepository{
