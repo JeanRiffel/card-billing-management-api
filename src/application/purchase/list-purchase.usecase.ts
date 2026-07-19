@@ -1,8 +1,8 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { Purchase } from "src/v2/domain/entities/purchase/purchase.entity";
-import { PURCHASE_REPOSITORY, PurchaseRepository } from "src/v2/domain/repositories/purchase-repository";
-import { ListPurchasesDTO } from "src/v2/modules/purchases/dto/list-purchase-request.dto";
-import { ListPurchasesDTOResponse } from "src/v2/modules/purchases/dto/list-purchase-response.dto";
+import { Purchase } from "src/domain/purchase/purchase.entity";
+import { PURCHASE_REPOSITORY, PurchaseRepository } from "src/domain/repositories/purchase-repository";
+import { ListPurchasesDTO } from "src/presentation/http/purchases/dto/list-purchase-request.dto";
+import { ListPurchasesDTOResponse } from "src/presentation/http/purchases/dto/list-purchase-response.dto";
 
 @Injectable()
 export class ListPurchaseUseCase {

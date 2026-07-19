@@ -1,8 +1,8 @@
 
-import { Card } from "src/v2/domain/entities/card/card.entity";
-import { ListCardDto } from "src/v2/modules/cards/dto/list-cards-response.dto";
+import { Card } from "src/domain/card/card.entity";
+import { ListCardDto } from "src/presentation/http/cards/dto/list-cards-response.dto";
 import { Injectable, Inject } from "@nestjs/common";
-import { CARD_REPOSITORY, CardRepository } from "src/v2/domain/repositories/card-repository";
+import { CARD_REPOSITORY, CardRepository } from "src/domain/repositories/card-repository";
 
 @Injectable()
 export class ListCardsUseCase {

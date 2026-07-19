@@ -1,5 +1,5 @@
 import { Repository } from "./repository";
-import { Card } from "../entities/card/card.entity"
+import { Card } from "../card/card.entity"
 
 export const CARD_REPOSITORY = Symbol('CARD_REPOSITORY');
 
