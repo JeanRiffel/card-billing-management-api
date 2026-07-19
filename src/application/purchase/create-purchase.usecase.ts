@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { Purchase } from "src/v2/domain/entities/purchase/purchase.entity";
-import { PURCHASE_REPOSITORY, PurchaseRepository } from "src/v2/domain/repositories/purchase-repository";
-import { CreatePurchasesDTO } from "src/v2/modules/purchases/dto/create-purchases-request.dto";
+import { Purchase } from "src/domain/purchase/purchase.entity";
+import { PURCHASE_REPOSITORY, PurchaseRepository } from "src/domain/repositories/purchase-repository";
+import { CreatePurchasesDTO } from "src/presentation/http/purchases/dto/create-purchases-request.dto";
 
 @Injectable()
 export class CreatePurchaseUseCase {

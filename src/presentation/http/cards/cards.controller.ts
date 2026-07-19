@@ -1,8 +1,8 @@
 import { Controller, Post, Body, Get } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card-request.dto';
 import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { CreateCardUseCase } from 'src/v2/application/use-cases/cards/create-card.usecase';
-import { ListCardsUseCase } from 'src/v2/application/use-cases/cards/list-cards-by-user.usecase';
+import { CreateCardUseCase } from 'src/application/cards/create-card.usecase';
+import { ListCardsUseCase } from 'src/application/cards/list-cards-by-user.usecase';
 
 @Controller('cards')
 export class CardsController {
