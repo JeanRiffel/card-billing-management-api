@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { CardsController } from './cards.controller';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/infra/orm/prisma/prisma.service';
 
 import { CreateCardUseCase } from 'src/v2/application/use-cases/cards/create-card.usecase';
 import { ListCardsUseCase } from 'src/v2/application/use-cases/cards/list-cards-by-user.usecase';

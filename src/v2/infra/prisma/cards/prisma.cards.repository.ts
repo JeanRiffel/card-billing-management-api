@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Card } from "src/v2/domain/entities/card/card.entity";
 import { Repository } from "src/v2/domain/repositories/repository";
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/infra/orm/prisma/prisma.service';
 import { CreateCardDto } from 'src/v2/modules/cards/dto/create-card-request.dto';
 import { CardRepository, CARD_REPOSITORY } from 'src/v2/domain/repositories/card-repository';
 
