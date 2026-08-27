@@ -14,9 +14,11 @@ class UserNameValueObject {
       throw new Error('User name must be between 3 and 50 characters');
     }
 
-    const regex = /^[a-zA-Z0-9_]+$/;
+    const regex = /^[\p{L}\p{M}]+(?:[ '-][\p{L}\p{M}]+)*$/u;
     if (!regex.test(value)) {
-      throw new Error('User name can only contain alphanumeric characters and underscores');
+      throw new Error(
+        "User name can only contain letters, and single spaces, hyphens or apostrophes between them",
+      );
     }
   }
 

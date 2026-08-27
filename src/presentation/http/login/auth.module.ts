@@ -5,6 +5,7 @@ import { JwtStrategy } from 'src/infra/authentication/jwt.strategy';
 import { AuthController } from './auth.controller';
 import { UsersModule } from 'src/presentation/http/users/users.module';
 import { LoginUseCase } from 'src/application/login/login-use-case';
+import { PrismaService } from 'src/infra/orm/prisma/prisma.service';
 import { PrismaUserRepository } from 'src/infra/orm/repository/users/PrismaUserRepository';
 import { BcryptPasswordHasher } from 'src/infra/authentication/BcryptPasswordHasher';
 import { JwtTokenProvider } from 'src/infra/authentication/JwtTokenProvider';
@@ -21,6 +22,7 @@ import { JwtTokenProvider } from 'src/infra/authentication/JwtTokenProvider';
   controllers: [AuthController],
   providers: [
     LoginUseCase,
+    PrismaService,
     {
       provide: 'PASSWORD_HASHER',
       useClass: BcryptPasswordHasher,

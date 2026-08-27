@@ -6,7 +6,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   roots: ['<rootDir>/src', '<rootDir>/test'],
-  testMatch: ['**/test/**/*.spec.ts'],
+  testMatch: ['**/*.spec.ts'],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',

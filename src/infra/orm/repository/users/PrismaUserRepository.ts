@@ -1,10 +1,12 @@
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import User from 'src/domain/user/entity/user';
 import UserNameValueObject from 'src/domain/user/value-object/user-name-value-object';
 import UserEmailValueObject from 'src/domain/user/value-object/user-email-value-object';
 import { UserRepository } from 'src/domain/user/repository/user-repository';
 
-export class PrismaUserRepository 
+@Injectable()
+export class PrismaUserRepository
   implements UserRepository {
 
   constructor(private readonly prisma: PrismaService) {}

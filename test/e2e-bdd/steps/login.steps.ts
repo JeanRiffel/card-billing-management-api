@@ -9,7 +9,7 @@ import * as bcrypt from 'bcrypt';
 
 Then('the response should contain a JWT token', function () {
   const body = response.body;
-  if (!body || typeof body.access_token !== 'string' || body.access_token.length < 10) {
+  if (!body || typeof body.accessToken !== 'string' || body.accessToken.length < 10) {
     throw new Error('JWT token not found in response');
   }
 });
