@@ -20,7 +20,7 @@ import { JwtTokenProvider } from 'src/infra/authentication/JwtTokenProvider';
   ],
   controllers: [AuthController],
   providers: [
-    LoginUseCase, 
+    LoginUseCase,
     {
       provide: 'PASSWORD_HASHER',
       useClass: BcryptPasswordHasher,
@@ -33,10 +33,9 @@ import { JwtTokenProvider } from 'src/infra/authentication/JwtTokenProvider';
     {
       provide: 'USER_REPOSITORY',
       useClass: PrismaUserRepository,
-    } ,    
-    JwtStrategy
+    },
+    JwtStrategy,
   ],
   exports: [LoginUseCase],
 })
-
 export class AuthModule {}
