@@ -1,11 +1,10 @@
 class UserEmailValueObject {
-
-  constructor(public readonly value: string) {  
+  constructor(public readonly value: string) {
     this.validateEmail(value);
   }
 
   private validateEmail(value: string) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;        
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(value)) {
       throw new Error('Invalid email format');
@@ -13,9 +12,8 @@ class UserEmailValueObject {
   }
 
   getValue(): string {
-    return this.value;        
+    return this.value;
   }
-
 }
 
 export default UserEmailValueObject;

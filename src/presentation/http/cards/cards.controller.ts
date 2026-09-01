@@ -6,18 +6,16 @@ import { ListCardsUseCase } from 'src/application/cards/list-cards-by-user.useca
 
 @Controller('cards')
 export class CardsController {
-
   constructor(
     private readonly createCardUseCase: CreateCardUseCase,
-    private readonly listCardsUseCase: ListCardsUseCase
+    private readonly listCardsUseCase: ListCardsUseCase,
   ) {}
 
   @Post()
   async createCard(
     @Body() dto: CreateCardDto,
-    @CurrentUser() user: { userId: string }
+    @CurrentUser() user: { userId: string },
   ) {
-
     return this.createCardUseCase.execute(dto, user.userId);
   }
 
@@ -25,5 +23,4 @@ export class CardsController {
   async getCards(@CurrentUser() user: { userId: string }) {
     return this.listCardsUseCase.execute(user.userId);
   }
-
 }

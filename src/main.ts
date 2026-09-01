@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
 import { ValidationPipe } from '@nestjs/common';
@@ -16,12 +16,12 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api-docs', app, document);    
+  SwaggerModule.setup('api-docs', app, document);
 
   app.useGlobalPipes(new ValidationPipe());
-  const reflector = app.get('Reflector');
+  const reflector = app.get(Reflector);
   app.useGlobalGuards(new JwtAuthGuard(reflector));
-    
+
   await app.listen(3000);
 }
-bootstrap();
+void bootstrap();

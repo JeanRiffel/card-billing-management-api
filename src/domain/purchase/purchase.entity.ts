@@ -1,5 +1,4 @@
 export class Purchase {
- 
   constructor(
     public readonly id: string | null,
     public date: Date,
@@ -8,6 +7,5 @@ export class Purchase {
     public installments: number,
     public cardId: string,
     public invoiceId: string,
-  ){}
-
+  ) {}
 }

@@ -8,17 +8,14 @@ import { PrismaPurchaseRepository } from 'src/infra/orm/repository/purchases/pri
 
 @Module({
   controllers: [PurchasesController],
-  providers: 
-  [
+  providers: [
     ListPurchaseUseCase,
-    CreatePurchaseUseCase, 
+    CreatePurchaseUseCase,
     PrismaService,
     {
       provide: PURCHASE_REPOSITORY,
-      useClass: PrismaPurchaseRepository
-    }
+      useClass: PrismaPurchaseRepository,
+    },
   ],
-
 })
-
 export class PurchasesModule {}

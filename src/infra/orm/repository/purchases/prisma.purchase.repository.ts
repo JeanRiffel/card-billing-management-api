@@ -1,25 +1,23 @@
-import { Injectable } from "@nestjs/common";
-import { Purchase } from "src/domain/purchase/purchase.entity";
-import { PurchaseRepository } from "src/domain/repositories/purchase-repository";
+import { Injectable } from '@nestjs/common';
+import { Purchase } from 'src/domain/purchase/purchase.entity';
+import { PurchaseRepository } from 'src/domain/repositories/purchase-repository';
 import { PrismaService } from 'src/infra/orm/prisma/prisma.service';
 
 @Injectable()
-export class PrismaPurchaseRepository implements PurchaseRepository{
-  
+export class PrismaPurchaseRepository implements PurchaseRepository {
   constructor(private prisma: PrismaService) {}
 
   async findByCardId(cardId: string): Promise<Purchase[]> {
-    return  await this.prisma.purchase.findMany({
+    return await this.prisma.purchase.findMany({
       where: { cardId },
     });
   }
 
-  findById(id: string): Promise<Purchase> {
-    throw new Error("Method not implemented.");
+  findById(_id: string): Promise<Purchase> {
+    throw new Error('Method not implemented.');
   }
-  
+
   async create(data: Purchase): Promise<Purchase | null> {
-    
     const purchase = await this.prisma.purchase.create({
       data: {
         date: data.date,
@@ -28,18 +26,16 @@ export class PrismaPurchaseRepository implements PurchaseRepository{
         installments: data.installments,
         cardId: data.cardId,
         invoiceId: data.invoiceId,
-      }
+      },
     });
 
     return purchase;
-
   }
 
-  delete(id: string): Promise<void> {
-    throw new Error("Method not implemented.");
+  delete(_id: string): Promise<void> {
+    throw new Error('Method not implemented.');
   }
-  update(id: string, data: Partial<Purchase>): Promise<Purchase> {
-    throw new Error("Method not implemented.");
+  update(_id: string, _data: Partial<Purchase>): Promise<Purchase> {
+    throw new Error('Method not implemented.');
   }
-
 }

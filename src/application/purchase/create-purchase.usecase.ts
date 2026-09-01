@@ -1,18 +1,19 @@
-import { Inject, Injectable } from "@nestjs/common";
-import { Purchase } from "src/domain/purchase/purchase.entity";
-import { PURCHASE_REPOSITORY, PurchaseRepository } from "src/domain/repositories/purchase-repository";
-import { CreatePurchasesDTO } from "src/presentation/http/purchases/dto/create-purchases-request.dto";
+import { Inject, Injectable } from '@nestjs/common';
+import { Purchase } from 'src/domain/purchase/purchase.entity';
+import {
+  PURCHASE_REPOSITORY,
+  PurchaseRepository,
+} from 'src/domain/repositories/purchase-repository';
+import { CreatePurchasesDTO } from 'src/presentation/http/purchases/dto/create-purchases-request.dto';
 
 @Injectable()
 export class CreatePurchaseUseCase {
-
   constructor(
     @Inject(PURCHASE_REPOSITORY)
-    private readonly purchaseRepository: PurchaseRepository
-  ){}
+    private readonly purchaseRepository: PurchaseRepository,
+  ) {}
 
-  async execute(dto: CreatePurchasesDTO): Promise<Purchase | null>{
-
+  async execute(dto: CreatePurchasesDTO): Promise<Purchase | null> {
     const data = new Purchase(
       '',
       dto.date,
@@ -20,19 +21,15 @@ export class CreatePurchaseUseCase {
       dto.description,
       dto.installments,
       dto.cardId,
-      dto.invoiceId
-    )
+      dto.invoiceId,
+    );
 
-    const createdPurchase = await this.purchaseRepository.create(
-      data
-    )
+    const createdPurchase = await this.purchaseRepository.create(data);
 
     if (!createdPurchase) {
-      throw new Error("Failed to create purchase");
+      throw new Error('Failed to create purchase');
     }
 
-    return createdPurchase
-
+    return createdPurchase;
   }
-
 }
