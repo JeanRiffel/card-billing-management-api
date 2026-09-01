@@ -6,17 +6,15 @@ import UserEmailValueObject from 'src/domain/user/value-object/user-email-value-
 import { UserRepository } from 'src/domain/user/repository/user-repository';
 
 @Injectable()
-export class PrismaUserRepository
-  implements UserRepository {
-
+export class PrismaUserRepository implements UserRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(user: User): Promise<User> {
     const createdUser = await this.prisma.user.create({
       data: {
         id: user.id,
-        name: user.name.toString(),
-        email: user.email.toString(),
+        name: user.name.getValue(),
+        email: user.email.getValue(),
         passwordHash: user.password,
       },
     });
@@ -56,5 +54,4 @@ export class PrismaUserRepository
       user.passwordHash,
     );
   }
-
 }

@@ -1,15 +1,9 @@
-import { Controller, Body, Post, Get } from '@nestjs/common';
+import { Controller, Body, Post } from '@nestjs/common';
 import { CreateUserDto } from '../../../users/dto/create-user.dto';
 import { Public } from 'src/common/decorators/public.decorator';
-import {  
-  ApiTags,
-  ApiOperation,
-  ApiBody,
-  ApiResponse,
-} from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiBody, ApiResponse } from '@nestjs/swagger';
 import { UserCreatedDTO } from '../../../users/dto/user-created.dto';
 import CreateUserUseCase from 'src/application/user/use-cases/create-user-user-case';
-
 
 @ApiTags('users')
 @Controller('users')
@@ -18,9 +12,13 @@ export class UsersController {
 
   @Public()
   @Post()
-  @ApiOperation({summary:'Create user' })
-  @ApiBody({type: CreateUserDto})
-  @ApiResponse({ status: 200, description: 'User created successfully.', type: UserCreatedDTO })  
+  @ApiOperation({ summary: 'Create user' })
+  @ApiBody({ type: CreateUserDto })
+  @ApiResponse({
+    status: 200,
+    description: 'User created successfully.',
+    type: UserCreatedDTO,
+  })
   async create(@Body() createUserDto: CreateUserDto) {
     return this.createUser.execute(createUserDto);
   }
@@ -30,6 +28,4 @@ export class UsersController {
     return this.userService.findById(user.userId);
   }
 */
-  
-
 }

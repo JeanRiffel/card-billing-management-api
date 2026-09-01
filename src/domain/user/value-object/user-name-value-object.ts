@@ -1,9 +1,7 @@
 class UserNameValueObject {
-
   constructor(public readonly value: string) {
     this.validateUserName(value);
   }
-
 
   private validateUserName(value: string) {
     if (!value || value.trim().length === 0) {
@@ -17,15 +15,14 @@ class UserNameValueObject {
     const regex = /^[\p{L}\p{M}]+(?:[ '-][\p{L}\p{M}]+)*$/u;
     if (!regex.test(value)) {
       throw new Error(
-        "User name can only contain letters, and single spaces, hyphens or apostrophes between them",
+        'User name can only contain letters, and single spaces, hyphens or apostrophes between them',
       );
     }
   }
 
   getValue(): string {
-    return this.value
+    return this.value;
   }
-
 }
 
-export default  UserNameValueObject;
+export default UserNameValueObject;

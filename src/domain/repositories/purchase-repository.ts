@@ -1,5 +1,5 @@
-import { Purchase } from "../purchase/purchase.entity";
-import { Repository } from "./repository";
+import { Purchase } from '../purchase/purchase.entity';
+import { Repository } from './repository';
 
 export const PURCHASE_REPOSITORY = Symbol('PURCHASE_REPOSITORY');
 

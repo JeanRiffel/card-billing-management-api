@@ -1,8 +1,7 @@
-import UserNameValueObject from "../value-object/user-name-value-object"
-import UsermailValueObject from "../value-object/user-email-value-object"
+import UserNameValueObject from '../value-object/user-name-value-object';
+import UsermailValueObject from '../value-object/user-email-value-object';
 
 class User {
-
   constructor(
     public readonly id: string,
     public readonly name: UserNameValueObject,
@@ -10,14 +9,14 @@ class User {
     public readonly password: string,
   ) {}
 
-  toJSON(){
+  toJSON() {
     return {
       id: this.id,
-      name: this.name.toString(),
-      email: this.email.toString(),
+      name: this.name.getValue(),
+      email: this.email.getValue(),
       password: this.password,
-    }
+    };
   }
 }
 
-export default User
+export default User;

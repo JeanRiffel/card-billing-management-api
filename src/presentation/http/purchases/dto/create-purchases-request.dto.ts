@@ -1,11 +1,6 @@
-import {
-  isNotEmpty,
-  IsNotEmpty,
-  IsUUID,
-} from 'class-validator'
+import { IsNotEmpty, IsUUID } from 'class-validator';
 
 export class CreatePurchasesDTO {
-  
   @IsNotEmpty()
   date: Date;
 
@@ -24,5 +19,4 @@ export class CreatePurchasesDTO {
 
   @IsNotEmpty()
   invoiceId: string;
-
 }
