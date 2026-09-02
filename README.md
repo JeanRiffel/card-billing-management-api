@@ -2,7 +2,6 @@
 
 A RESTful API for managing credit card purchases and monthly invoices, built with [NestJS](https://nestjs.com/), [Prisma ORM](https://www.prisma.io/), and [PostgreSQL](https://www.postgresql.org/). Authentication is handled with JWT.
 
-![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-blue?logo=OpenAI&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
@@ -12,7 +11,6 @@ A RESTful API for managing credit card purchases and monthly invoices, built wit
 - User registration and login with JWT authentication
 - Card registration and listing per user
 - Purchase registration (amount, date, description, installments) linked to a card
-- AI chat endpoint backed by a local Ollama model (protected route)
 - Protected routes using Passport JWT, with Swagger API documentation
 
 ### 🔜 Backlog (not implemented yet)
@@ -79,58 +77,6 @@ yarn start:dev
 
 ---
 
-## 🧠 AI Integration (Ollama)
-
-This project uses Ollama to run local LLMs (Large Language Models) like LLaMA3 or Mistral for AI-based features, such as:
-
-- Chat with context per user (`POST /ai/chat`, implemented)
-- Natural language invoice explanations — see [Backlog](#-backlog-not-implemented-yet)
-- Spending anomaly detection — see [Backlog](#-backlog-not-implemented-yet)
-
-### 🚀 How to Install and Run Ollama Locally
-
-You need to install Ollama locally to enable AI endpoints in this API.
-
-**1. Install Ollama**
-
-Visit https://ollama.com and follow installation instructions for your system:
-
-- macOS (Intel/Apple Silicon): via Homebrew
-- Linux (Debian-based): via .deb package
-- Windows: via official installer
-
-Or run:
-
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
-
-**2. Download a model (e.g., llama3)**
-
-```bash
-ollama pull llama3
-```
-
-**3. Run Ollama**
-
-```bash
-ollama run llama3
-```
-
-Ollama will expose a local REST API at `http://localhost:11434`.
-
-**4. Test the API manually (optional)**
-
-```bash
-curl http://localhost:11434/api/generate -d '{
-  "model": "llama3",
-  "prompt": "Hello, how are you?",
-  "stream": false
-}'
-```
-
----
-
 ## Swagger
 
 ### Accessing Swagger
@@ -183,7 +129,6 @@ Authorization: Bearer your.jwt.token
 | GET    | `/cards`      | List cards for the authenticated user (protected) |
 | POST   | `/purchases`  | Create a new purchase (protected)          |
 | GET    | `/purchases`  | List purchases for a card (protected)      |
-| POST   | `/ai/chat`    | Chat with the AI assistant (protected)     |
 
 Invoice endpoints are not implemented yet — see [Backlog](#-backlog-not-implemented-yet).
 
@@ -214,7 +159,6 @@ src/
 │   ├── cards/
 │   └── purchases/
 ├── common/                # Global JWT guard and decorators (@Public, @CurrentUser)
-├── old-structure/          # Legacy modules not yet migrated (AI chat)
 └── main.ts                 # Entry point
 ```
 
